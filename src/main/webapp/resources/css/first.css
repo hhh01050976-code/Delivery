@@ -1,0 +1,154 @@
+@charset "UTF-8";
+
+
+/* 반응형 폰트 사이즈 */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+header {
+	display: flex; /*안에 있는 div 가로 정렬*/
+	justify-content: space-between; /* 안에 있는  div 서로 양쪽 배치*/
+	margin: 15px; /*이거 때맨 오버되서 그거를 가로 길이에서 빼는 거임 */
+	width: calc(100% - 30px); /* 좌우 margin 합을 뺌 */
+}
+
+#test{
+	width: 70px;
+	height: 70px;
+	border-radius: 23px;
+}
+
+#test2{
+	width:70px;
+	height:70px;
+	background-image: url('../img/2.jpg'); /*이미지 넣기*/
+	background-repeat: no-repeat;
+	background-size: cover; /*사이즈에 맞게 맞춰주기*/
+	border: none; 
+}
+
+nav{
+	background-color: rgba(255, 138, 128, 0.3); /* 0.5 = 50% 투명 */
+	width: calc(100% - 30px);
+	height: 130px;
+	margin: 15px;
+	border-radius: 15px;
+    display: flex;           /* nav를 flex 컨테이너로 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center;     /* 세로 중앙 정렬 */
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+
+.menu {
+    display: flex;
+    flex-wrap: nowrap; /* 한 줄로 고정 */
+    gap: 10px;
+}
+
+.menu-item {
+    text-align: center;
+    flex: 0 0 auto; /* 아이템 크기 고정, 줄바꿈 방지 */
+    width: 70px;    /* 아이템 가로 크기 */
+}
+
+.menu-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.menu-item p {
+    margin-top: 5px;  /* 위쪽 간격만 조절 */
+    margin-bottom: 0; /* 아래쪽 여백 제거 */
+    font-size: 14px;  /* 필요 시 폰트 크기 조정 */
+    font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+}
+
+
+/*--------------------------------------------------------------------------*/
+.sl {
+    display: flex;          /* 가로로 나열 */
+    gap: 10px;              /* 섹션 간 간격 */
+    overflow-x: auto;       /* 가로 스크롤 허용 */
+
+    white-space: nowrap;    /* 아이템 줄바꿈 방지 */
+    
+        /* 스크롤바 숨기기 - Chrome, Safari, Edge */
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+}
+
+.sl::-webkit-scrollbar {
+        display: none;  
+}
+
+.sl::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 4px;
+}
+
+
+.a{
+	background-color: rgba(255, 138, 128, 0.3);
+	width: calc(90% - 30px);
+	height: 300px;
+	margin: 15px;
+	border-radius: 15px;
+	
+    display: flex;            /* flex 컨테이너 */
+    flex-direction: column;   /* 위->아래 방향 */
+    justify-content: center;  /* 가로 중앙 */
+    align-items: center;      /* 세로 중앙 */
+    
+}
+
+.a p{
+    margin-top: 0;    /* 위쪽 여백 제거 */
+    margin-bottom: 7px; /* 아래쪽 여백 제거 */
+	font-size: 25px;
+	font-weight: 700;	
+	font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+	color: #222222;
+	 /*  -webkit-text-stroke: 1px black; 테두리 */
+}
+
+#c{
+	width: 200px;
+	height: 220px;
+}
+
+/*---------------------------------------------------------------------------------*/
+.d{
+	background-color: rgba(255, 138, 128, 0.3);
+	width: calc(100% - 30px);
+	height: 500px;
+	margin:  15px;
+	border-radius: 15px;
+	
+    justify-content: center;  /* 가로 중앙 */
+    align-items: center;      /* 세로 중앙 */
+    display: flex;            /* flex 컨테이너 */
+    flex-direction: column;
+	padding: 0;
+}
+
+.d p{
+	font-size: 18px;
+	font-weight: 800;
+	font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+	margin-top: 0;
+	
+}
+
+/*룰렛 사진임 - 나중에 바꿀것*/
+#f{
+	width: 400px;
+	height: 380px;
+}
