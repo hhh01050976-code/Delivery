@@ -152,3 +152,66 @@ nav{
 	width: 400px;
 	height: 380px;
 }
+
+/*---------------------------------------------------------------------------------*/
+/*체크리스트*/
+.g{
+	background-color: rgba(255, 138, 128, 0.3);
+	width: calc(100% - 30px);
+	height: 300px;
+	margin:  30px 15px;
+	border-radius: 15px;
+	
+}
+
+/*---------------------------------------------------------------------------------*/
+#footer{
+	background-color: gray;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100px;
+}
+
+/*---------------------------------------------------------------------------------*/
+/*장바구니 css*/
+#cart {
+    position: fixed;           /* 화면 고정 */
+    bottom: 20px;              /* 아래에서 20px 위 */
+    right: 10px;               /* 오른쪽에서 20px 왼쪽 */
+    width: 130px;              /* 버튼 폭 */
+    background-color: #007BFF; /* 파란색 */
+    color: white;              /* 글자 흰색 */
+    border-radius: 10px;       /* 둥근 모서리 */
+    padding: 13px 10px;        /* 상하 15px, 좌우 10px */
+    text-align: center;        /* 글자 가로 중앙 */
+    line-height: 1.2;          /* 세로 중앙 느낌 */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* 그림자 */
+    cursor: pointer;           /* 손가락 커서 */
+    z-index: 100;              /* 다른 요소 위에 */
+    font-weight: bold;         /* 글자 굵게 */
+    font-size: 14px;           /* 글자 크기 */
+}
+
+/* 버튼 클릭 느낌 */
+#cart:hover {
+       background-color: #0056b3;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transform: translateY(-2px); /* 살짝 떠오르는 느낌 */
+}
+
+/* 장바구니 안 아이템 */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* 세로 중앙 맞춤 */
+    margin-bottom: 10px;
+}
+
+/* 장바구니 글자 */
+#cart h2 {
+    margin: 0;               /* 기본 여백 제거 */
+    font-size: 16px;
+    line-height: 1.2;
+    text-align: center;
+}
