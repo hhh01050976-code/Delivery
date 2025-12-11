@@ -1,51 +1,12 @@
 /**
- * 장바구니 데이터 관리 (카테고리 구분 포함)
+ * 장바구니 데이터 관리 (중식용)
  */
 
-// 현재 페이지 카테고리 설정 (한식: "korean", 중식: "chinese")
-const currentCategory = "korean";
+// 현재 페이지 카테고리 설정 (중식)
+const currentCategory = "chinese";
 
 // 장바구니 불러오기
 let cartData = JSON.parse(localStorage.getItem('cartData')) || [];
-
-// 메뉴 담기 버튼 이벤트
-document.querySelectorAll('.add-cart-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        // 현재 장바구니에 다른 카테고리가 담겨있는지 확인
-        const savedCategory = localStorage.getItem("category");
-
-        if (savedCategory && savedCategory !== currentCategory && cartData.length > 0) {
-            const userChoice = confirm(
-                "현재 장바구니에는 다른 종류의 메뉴가 담겨 있습니다.\n" +
-                "삭제하고 새 메뉴를 담겠습니까?\n\n[확인=삭제, 취소=유지]"
-            );
-
-            if (!userChoice) return; // 취소 선택 시 아무것도 안 함
-            cartData = [];            // 삭제 선택 시 기존 장바구니 초기화
-        }
-
-        // 현재 카테고리 저장
-        localStorage.setItem("category", currentCategory);
-
-        // 선택한 메뉴 정보 가져오기
-        const menuItem = btn.closest('.menu-item');
-        const name = menuItem.querySelector('.menu-name').textContent;
-        const price = menuItem.querySelector('.menu-price').textContent;
-        const qty = parseInt(menuItem.querySelector('.qty-number').textContent);
-        const imgSrc = menuItem.querySelector('.menu-img').src;
-
-        // 기존에 같은 메뉴가 있으면 수량 증가, 없으면 새로 추가
-        const existing = cartData.find(item => item.name === name);
-        if (existing) {
-            existing.qty += qty;
-        } else {
-            cartData.push({ name, price, qty, imgSrc });
-        }
-
-        localStorage.setItem('cartData', JSON.stringify(cartData));
-        alert(`${name}이(가) 장바구니에 추가되었습니다.`);
-    });
-});
 
 // 메뉴 수량 버튼 이벤트
 document.querySelectorAll('.menu-item').forEach(item => {
@@ -61,6 +22,45 @@ document.querySelectorAll('.menu-item').forEach(item => {
     plusBtn.addEventListener('click', () => {
         let qty = parseInt(qtyNumber.textContent);
         qtyNumber.textContent = qty + 1;
+    });
+});
+
+// 메뉴 담기 버튼 이벤트
+document.querySelectorAll('.add-cart-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        // 장바구니에 다른 카테고리가 있는지 확인
+        const savedCategory = localStorage.getItem("category");
+
+        if (savedCategory && savedCategory !== currentCategory && cartData.length > 0) {
+            const userChoice = confirm(
+                "현재 장바구니에는 다른 종류의 메뉴가 담겨 있습니다.\n" +
+                "삭제하고 새 메뉴를 담겠습니까?\n\n[확인=삭제, 취소=유지]"
+            );
+
+            if (!userChoice) return; // 취소 시 종료
+            cartData = [];            // 확인 시 장바구니 초기화
+        }
+
+        // 현재 카테고리 저장
+        localStorage.setItem("category", currentCategory);
+
+        // 메뉴 정보 가져오기
+        const menuItem = btn.closest('.menu-item');
+        const name = menuItem.querySelector('.menu-name').textContent;
+        const price = menuItem.querySelector('.menu-price').textContent;
+        const qty = parseInt(menuItem.querySelector('.qty-number').textContent);
+        const imgSrc = menuItem.querySelector('.menu-img').src;
+
+        // 기존 메뉴 있으면 수량 증가, 없으면 새로 추가
+        const existing = cartData.find(item => item.name === name);
+        if (existing) {
+            existing.qty += qty;
+        } else {
+            cartData.push({ name, price, qty, imgSrc });
+        }
+
+        localStorage.setItem('cartData', JSON.stringify(cartData));
+        alert(`${name}이(가) 장바구니에 추가되었습니다.`);
     });
 });
 
