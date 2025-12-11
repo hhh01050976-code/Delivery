@@ -15,7 +15,7 @@
 		<a href="${pageContext.request.contextPath}/" class="back-link"><!-- 여기에 뒤로가기 만들고 -->
 			<img src="resources/img/12.png" alt="뒤로가기" id="back">
 		</a>
-		<p>일식</p><!-- 여기에 중간에 한식 이름 중앙에 넣고-->
+		<p>패스트푸드</p><!-- 여기에 중간에 한식 이름 중앙에 넣고-->
 	</div>
 	
 	
